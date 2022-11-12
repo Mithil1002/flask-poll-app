@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}
+Results
+{% endblock %}
+
+{% block content %}
+<head>
+</head>
+<body>
+<div class="container">
+    <br/> <br/>
+    <h2 align="center">Poll Results</h2><br/>
+    <div class="row">
+        <div class="col-md-6">
+            {% for i in poll %}
+            <br>
+            <div>
+                <label> {{i.question}}</label>
+            </div>
+            <br>
+            {% if i.total_count == 0 %}
+            <div>
+            <label> {{i.option_one}} - {{0.00}} %</label>
+            </div>
+            <div>
+            <label> {{i.option_two}} - {{0.00}} %</label>
+            </div>
+            <div>
+            <label> {{i.option_three}} - {{0.00}} %</label>
+            </div>
+            <div>
+            <label> {{i.option_four}} - {{0.00}} %</label>
+            </div>
+            {% else %}
+            <div>
+                <label> {{i.option_one}} - {{"%.2f"|format(i.one_count/i.total_count * 100)}} %</label>
+            </div>
+            <div class="radio">
+                <label>{{i.option_two}} - {{"%.2f"|format(i.two_count/i.total_count * 100)}} %</label>
+            </div>
+            <div class="radio">
+                <label>{{i.option_three}} - {{"%.2f"|format(i.three_count/i.total_count * 100)}} %</label>
+            </div>
+            <div class="radio">
+                <label>{{i.option_four}} - {{"%.2f"|format(i.four_count/i.total_count * 100)}} %</label>
+            </div>
+            {% endif %}
+            <br>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock %}

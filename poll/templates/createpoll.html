@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+Create poll
+{% endblock %}
+
+{% block content %}
+<!--<body class="text-center">-->
+<!--<h1>Create your Poll</h1>-->
+<!--</body>-->
+<!--<br>-->
+<!--<input type="text" class="form-control" placeholder="Question" name="question" aria-describedby="addon-wrapping">-->
+<!--<br>-->
+<!--<div class="input-group flex-nowrap">-->
+<!--  <span class="input-group-text" id="addon-wrapping1">1.</span>-->
+<!--  <input type="text" class="form-control" placeholder="Option 1" name="option1" aria-describedby="addon-wrapping">-->
+<!--</div>-->
+<!--<div class="input-group flex-nowrap">-->
+<!--  <span class="input-group-text" id="addon-wrapping2">2.</span>-->
+<!--  <input type="text" class="form-control" placeholder="Option 2" name="option2" aria-describedby="addon-wrapping">-->
+<!--</div>-->
+<!--<div class="input-group flex-nowrap">-->
+<!--  <span class="input-group-text" id="addon-wrapping3">3.</span>-->
+<!--  <input type="text" class="form-control" placeholder="Option 3" name="option3" aria-describedby="addon-wrapping">-->
+<!--</div>-->
+<!--<div class="input-group flex-nowrap">-->
+<!--  <span class="input-group-text" id="addon-wrapping4">4.</span>-->
+<!--  <input type="text" class="form-control" placeholder="Option 4" name="option4" aria-describedby="addon-wrapping">-->
+<!--</div>-->
+<!--<br>-->
+<!--<button style ="background-color:grey;border-color:grey"  type="submit" >Submit</button>-->
+
+<body class="text-center">
+<div class="container">
+    <form method="POST" class="form-register" style="color:white">
+        {{ form.hidden_tag() }}
+        <br>
+        <h1 class="h3 mb-3 font-weight-normal">
+            Create Poll
+        </h1>
+        <br>
+        {{ form.id(class="form-control", placeholder="ID") }}
+
+        <br>
+        <!--            {{ form.question.label() }}-->
+        {{ form.question(class="form-control", placeholder="Question") }}
+
+        <!--            {{ form.option1.label() }}-->
+        <br>
+        {{ form.option1(class="form-control", placeholder="option 1") }}
+
+        <!--            {{ form.option2.label() }}-->
+        {{ form.option2(class="form-control", placeholder="option 2") }}
+
+        <!--            {{ form.option3.label() }}-->
+        {{ form.option3(class="form-control", placeholder="option 3") }}
+
+        <!--            {{ form.option4.label() }}-->
+        {{ form.option4(class="form-control", placeholder="option 4") }}
+
+        <br>
+
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+    </form>
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+<body>
+
+<div class="container">
+    <br/> <br/>
+    <h2 align="center">Available Polls</h2><br/>
+    <div class="row">
+        <div class="col-md-4">
+            {% for i in poll %}
+            <br>
+            <div>
+                <label> {{i.question}}</label>
+            </div>
+            <div>
+                <a href="{{ url_for('result',poll_id=i.id) }}" class="btn btn-secondary btn-xs">Result</a> &nbsp;
+            </div>
+            <br>
+	        <div>
+                <a href="{{ url_for('delete_poll',poll_id=i.id) }}" class="btn btn-secondary btn-xs">Delete Poll</a> &nbsp;
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+Vote
+{% endblock %}
+
+{% block content %}
+<html>
+<head>
+    <title>Vote</title>
+</head>
+<body>
+<div class="container">
+    <br/> <br/>
+    <h2 align="center">Vote</h2><br/>
+    <div class="row">
+        <div class="col-md-6">
+            {% for i in poll %}
+            <br>
+            <form method="POST" id="poll_form">
+                <div class="radio">
+                    <label> {{i.question}}</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="poll_option" value="1"/> {{i.option_one}}</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="poll_option" value="2"/> {{i.option_two}}</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="poll_option" value="3"/> {{i.option_three}}</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="poll_option" value="4"/> {{i.option_four}}</label>
+                </div>
+                <input type="submit" name="poll_button" id="poll_button" class="btn btn-secondary"/>
+                <br>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
