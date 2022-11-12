@@ -7,6 +7,7 @@ from flask_login import login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
+@app.route('/')
 @app.route('/home')
 def home():
     poll = Poll.query.all()
@@ -72,7 +73,7 @@ def register():
         email_s = data.get('email_address')
 
         # if id_user < 0:
-            # flash('ID must be a positive integer', category='danger')
+        # flash('ID must be a positive integer', category='danger')
         # else:
         new_user = User(id=form.id.data, username=username_s.strip(), email_address=email_s.strip(),
                         password_hash=generate_password_hash(form.password1.data, method='sha256'))
@@ -106,12 +107,12 @@ def create_poll():
         else:
             # '''id=form.id.data,''',
             new_poll = Poll(
-                            question=question.strip(),
-                            option_one=one.strip(),
-                            option_two=two.strip(),
-                            option_three=three.strip(),
-                            option_four=four.strip(),
-                            owner=flask_login.current_user.username)
+                question=question.strip(),
+                option_one=one.strip(),
+                option_two=two.strip(),
+                option_three=three.strip(),
+                option_four=four.strip(),
+                owner=flask_login.current_user.username)
             db.session.add(new_poll)
             db.session.commit()
             flash('Poll created successfully', category='success')
