@@ -67,20 +67,20 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         data = request.form
-        id_user = int(data.get('id'))
+        # id_user = int(data.get('id'))
         username_s = data.get('username')
         email_s = data.get('email_address')
 
-        if id_user < 0:
-            flash('ID must be a positive integer', category='danger')
-        else:
-            new_user = User(id=form.id.data, username=username_s.strip(), email_address=email_s.strip(),
-                            password_hash=generate_password_hash(form.password1.data, method='sha256'))
-            db.session.add(new_user)
-            db.session.commit()
-            login_user(new_user)
-            flash(f"Account created successfully! You are now logged in as {new_user.username}", category='success')
-            return redirect(url_for('home'))
+        # if id_user < 0:
+            # flash('ID must be a positive integer', category='danger')
+        # else:
+        new_user = User(id=form.id.data, username=username_s.strip(), email_address=email_s.strip(),
+                        password_hash=generate_password_hash(form.password1.data, method='sha256'))
+        db.session.add(new_user)
+        db.session.commit()
+        login_user(new_user)
+        flash(f"Account created successfully! You are now logged in as {new_user.username}", category='success')
+        return redirect(url_for('home'))
     if form.errors != {}:
         for err_msg in form.errors.values():
             flash(f'There was an error with creating a user: {err_msg}', category='danger')
@@ -104,7 +104,8 @@ def create_poll():
         if id_user < 0:
             flash('ID must be a positive integer', category='danger')
         else:
-            new_poll = Poll(id=form.id.data,
+            # '''id=form.id.data,''',
+            new_poll = Poll(
                             question=question.strip(),
                             option_one=one.strip(),
                             option_two=two.strip(),

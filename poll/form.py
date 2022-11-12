@@ -20,7 +20,7 @@ class RegisterForm(FlaskForm):
         if email_address:
             raise ValidationError('Email Address already exists! Please try a different email address')
 
-    id = IntegerField(label='ID:', validators=[DataRequired()])
+    # id = IntegerField(label='ID:', validators=[DataRequired()])
     username = StringField(label='User Name:', validators=[Length(min=2, max=50), DataRequired()])
     email_address = StringField(label='Email Address:', validators=[Length(max=30), validators.Email(), DataRequired()])
     password1 = PasswordField(label='Password:', validators=[Length(min=6, max=20), DataRequired()])
@@ -34,7 +34,7 @@ class PollForm(FlaskForm):
         if user:
             raise ValidationError('ID already exists! Please try a different ID')
 
-    id = IntegerField(label='ID:', validators=[DataRequired()])
+    # id = IntegerField(label='ID:', validators=[DataRequired()])
     question = StringField(label='question', validators=[Length(min=2, max=350), DataRequired()])
     option1 = StringField(label='option1', validators=[Length(min=2, max=100), DataRequired()])
     option2 = StringField(label='option2', validators=[Length(min=2, max=100), DataRequired()])
