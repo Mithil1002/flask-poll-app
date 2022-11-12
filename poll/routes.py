@@ -75,7 +75,7 @@ def register():
         # if id_user < 0:
         # flash('ID must be a positive integer', category='danger')
         # else:
-        new_user = User(id=form.id.data, username=username_s.strip(), email_address=email_s.strip(),
+        new_user = User(username=username_s.strip(), email_address=email_s.strip(),
                         password_hash=generate_password_hash(form.password1.data, method='sha256'))
         db.session.add(new_user)
         db.session.commit()
