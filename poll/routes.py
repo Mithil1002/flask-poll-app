@@ -1,5 +1,5 @@
 import flask_login
-from poll import app, db, cx_Oracle
+from poll import app, db
 from flask import render_template, request, redirect, url_for, flash
 from poll.models import User, Poll
 from poll.form import RegisterForm, LoginForm, PollForm
@@ -39,7 +39,6 @@ def login():
 
 
 @app.route('/polls/<poll_id>', methods=['GET', 'POST'])
-# @login_required
 def polls(poll_id):
     poll = Poll.query.filter_by(id=poll_id)
     for i in poll:
