@@ -7,7 +7,6 @@ from flask_login import login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-@app.route('/')
 @app.route('/home')
 def home():
     poll = Poll.query.all()
