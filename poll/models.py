@@ -9,7 +9,7 @@ def load_user(user):
 
 
 class User(UserMixin, db.Model):
-    # id = db.Column(db.Integer(), primary_key=True)
+    id = db.Column(db.Integer(), primary_key=True)
     email_address = db.Column(db.String(length=30), nullable=False, unique=True)
     username = db.Column(db.String(length=50), nullable=False, unique=True)
     password_hash = db.Column(db.String(length=200), nullable=False)
@@ -17,7 +17,7 @@ class User(UserMixin, db.Model):
 
 
 class Poll(db.Model):
-    # id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(350))
     option_one = db.Column(db.String(100))
     option_two = db.Column(db.String(100))
